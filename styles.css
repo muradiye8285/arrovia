@@ -171,6 +171,9 @@ footer a { color: var(--cyan); text-decoration: none; }
 .landing-nav a { color: var(--muted); text-decoration: none; font-size: .88rem; font-weight: 750; }
 .landing-nav a:hover { color: white; }
 .landing-nav .nav-button { padding: 10px 17px; border: 1px solid var(--line); border-radius: 999px; color: white; }
+.landing-nav .current-link { color: white; }
+.landing-nav a:not(.nav-button).current-link { position: relative; }
+.landing-nav a:not(.nav-button).current-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: -9px; height: 2px; border-radius: 99px; background: linear-gradient(90deg, var(--coral), var(--orange)); }
 
 .launch-hero { min-height: 720px; padding: 62px 0 100px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 70px; align-items: center; }
 .launch-copy > p:not(.eyebrow) { max-width: 670px; margin: 30px 0 0; color: var(--muted); font-size: 1.17rem; }
@@ -243,7 +246,8 @@ footer a { color: var(--cyan); text-decoration: none; }
 .cta-links { display: grid; gap: 10px; }.cta-links a { padding: 13px 16px; border-radius: 14px; background: rgba(255,255,255,.08); text-decoration: none; text-align: center; font-weight: 850; font-size: .85rem; }
 
 @media (max-width: 900px) {
-  .landing-nav a:not(.nav-button) { display: none; }
+  .landing-nav .section-link { display: none; }
+  .landing-nav { gap: 14px; }
   .launch-hero, .feature-section, .leaderboard-section { grid-template-columns: 1fr; }
   .feature-intro { position: static; }
   .section-title { grid-template-columns: 1fr; }
@@ -254,7 +258,13 @@ footer a { color: var(--cyan); text-decoration: none; }
 }
 
 @media (max-width: 560px) {
-  .landing-nav .nav-button { padding: 8px 12px; font-size: .78rem; }
+  .site-header { flex-wrap: wrap; row-gap: 18px; }
+  .brand { font-size: .82rem; gap: 8px; }
+  .brand-mark { width: 34px; height: 34px; }
+  .landing-nav { width: 100%; justify-content: space-between; gap: 7px; padding-top: 13px; border-top: 1px solid var(--line); }
+  .landing-nav .section-link { display: inline; }
+  .landing-nav a { font-size: .67rem; }
+  .landing-nav .nav-button { padding: 7px 9px; font-size: .67rem; }
   .launch-hero { padding-top: 50px; }
   .phone-scene { min-height: 480px; }
   .orbit-one { width: 360px; height: 360px; }.orbit-two { width: 300px; height: 300px; }
